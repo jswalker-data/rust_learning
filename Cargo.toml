@@ -1,6 +1,9 @@
-[package]
-name = "rust-learning"
-version = "0.1.0"
-edition = "2024"
+[workspace]
+members = [
+    "examples/rust_book/*", "examples/rust_by_example/hello_world",
+    #"examples/rust-by-example/*",
+    #"projects/*",
+]
 
-[dependencies]
+# Expliciilty pinning to use the new 2024 resolver
+resolver = "3"
