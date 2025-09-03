@@ -2,9 +2,20 @@
 // Standard library brings in prelude use a 'use' to bring in anything else
 use std::io;
 
+
+// Rng is a trait that defines methods that rand num gens implement
+use rand::Rng;
+
 // Standard main function entry point
 fn main() {
     println!("Guess the number!");
+
+    // Generator used is local to current thread and seeded by os
+    // Call gen_range defined by Rng trait
+    // Range 1..=100 is inclusive on lower and upper bounds
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+
+    println!("The secret number is: {secret_number}");
 
     println!("Please input your guess.");
 
@@ -24,5 +35,5 @@ fn main() {
         .read_line(&mut guess)
         .expect("Failed to read line");
 
-    println!("You guessed: {guess}")
+    println!("You guessed: {guess}");
 }
