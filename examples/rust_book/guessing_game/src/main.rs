@@ -5,7 +5,6 @@ use std::io;
 // Ordering type is another enum with variants Less, Greater and Equal
 use std::cmp::Ordering;
 
-
 // Rng is a trait that defines methods that rand num gens implement
 use rand::Rng;
 
@@ -18,9 +17,6 @@ fn main() {
     // Range 1..=100 is inclusive on lower and upper bounds
     let secret_number = rand::thread_rng().gen_range(1..=100);
 
-    println!("The secret number is: {secret_number}");
-
-
     loop {
         println!("Please input your guess.");   
 
@@ -29,7 +25,6 @@ fn main() {
         // ::new() is associated function of the String type, makes a new empty string
         // This line creates a mutable variable currently bound to a new, empty string
         let mut guess = String::new();
-        
 
         // Type represents a handle to standard input of a terminal
         // Next call read_line method on the standard input handle and where to store it
@@ -39,16 +34,20 @@ fn main() {
             .read_line(&mut guess)
             .expect("Failed to read line");
 
-
         // Shadowing the old guess variable, most common for type conversion
         // Trim removes white space and \n or \r characters
         // Parse allows conversion from string to number
         // Parse method returns a Result type similar to read_line
-        let guess: u32 = guess.trim().parse().expect("Please type a number!");
-
+        // Err(_) is a catch all that ignores the specific error value
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("Please enter a valid number!");
+                continue;
+            }
+        };
 
         println!("You guessed: {guess}");
-
 
         //Compare guess to secret number using cmp method and returns variant of the Ordering enum
         //The match expression decides what to do next based on the variant of the Ordering enum
