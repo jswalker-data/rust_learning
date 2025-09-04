@@ -1,5 +1,5 @@
 
-// create a function called main
+// Create a function called main
 // Main always runs fist in any rust executable
 fn main() {
 
