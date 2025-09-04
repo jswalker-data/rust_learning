@@ -2,6 +2,9 @@
 // Standard library brings in prelude use a 'use' to bring in anything else
 use std::io;
 
+// Ordering type is another enum with variants Less, Greater and Equal
+use std::cmp::Ordering;
+
 
 // Rng is a trait that defines methods that rand num gens implement
 use rand::Rng;
@@ -35,5 +38,23 @@ fn main() {
         .read_line(&mut guess)
         .expect("Failed to read line");
 
+
+    // Shadowing the old guess variable, most common for type conversion
+    // Trim removes white space and \n or \r characters
+    // Parse allows conversion from string to number
+    // Parse method returns a Result type similar to read_line
+    let guess: u32 = guess.trim().parse().expect("Please type a number!");
+
+
     println!("You guessed: {guess}");
+
+
+    //Compare guess to secret number using cmp method and returns variant of the Ordering enum
+    //The match expression decides what to do next based on the variant of the Ordering enum
+    //Rust looks through the arms of match and compares the value of guess to each pattern
+    match guess.cmp(&secret_number) {
+        Ordering::Less => println!("Too small!"),
+        Ordering::Greater => println!("Too big!"),
+        Ordering::Equal => println!("You win!"),
+    }
 }
