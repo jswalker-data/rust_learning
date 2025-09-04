@@ -20,41 +20,46 @@ fn main() {
 
     println!("The secret number is: {secret_number}");
 
-    println!("Please input your guess.");
+
+    loop {
+        println!("Please input your guess.");   
+
+        // Let creates a variable, mutable variable so we can change it
+        // Guess becomes a new instance of a string, growable UTF-8 encoded
+        // ::new() is associated function of the String type, makes a new empty string
+        // This line creates a mutable variable currently bound to a new, empty string
+        let mut guess = String::new();
+        
+
+        // Type represents a handle to standard input of a terminal
+        // Next call read_line method on the standard input handle and where to store it
+        // & is a reference to the mutable variable guess, refs are immutable by default so we make it mutable
+        // read_line has a 'Result' with variant err and ok. err will trigger expect
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
 
 
-    // Let creates a variable, mutable variable so we can change it
-    // Guess becomes a new instance of a string, growable UTF-8 encoded
-    // ::new() is associated function of the String type, makes a new empty string
-    // This line creates a mutable variable currently bound to a new, empty string
-    let mut guess = String::new();
-    
-
-    // Type represents a handle to standard input of a terminal
-    // Next call read_line method on the standard input handle and where to store it
-    // & is a reference to the mutable variable guess, refs are immutable by default so we make it mutable
-    // read_line has a 'Result' with variant err and ok. err will trigger expect
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
+        // Shadowing the old guess variable, most common for type conversion
+        // Trim removes white space and \n or \r characters
+        // Parse allows conversion from string to number
+        // Parse method returns a Result type similar to read_line
+        let guess: u32 = guess.trim().parse().expect("Please type a number!");
 
 
-    // Shadowing the old guess variable, most common for type conversion
-    // Trim removes white space and \n or \r characters
-    // Parse allows conversion from string to number
-    // Parse method returns a Result type similar to read_line
-    let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        println!("You guessed: {guess}");
 
 
-    println!("You guessed: {guess}");
-
-
-    //Compare guess to secret number using cmp method and returns variant of the Ordering enum
-    //The match expression decides what to do next based on the variant of the Ordering enum
-    //Rust looks through the arms of match and compares the value of guess to each pattern
-    match guess.cmp(&secret_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Equal => println!("You win!"),
+        //Compare guess to secret number using cmp method and returns variant of the Ordering enum
+        //The match expression decides what to do next based on the variant of the Ordering enum
+        //Rust looks through the arms of match and compares the value of guess to each pattern
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
+        }
     }
 }
