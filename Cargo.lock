@@ -3,6 +3,10 @@
 version = 4
 
 [[package]]
+name = "branches"
+version = "0.1.0"
+
+[[package]]
 name = "cfg-if"
 version = "1.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -43,6 +47,10 @@ name = "libc"
 version = "0.2.175"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6a82ae493e598baaea5209805c49bbf2ea7de956d50d7da0da1164f9c6d28543"
+
+[[package]]
+name = "loops"
+version = "0.1.0"
 
 [[package]]
 name = "ppv-lite86"
