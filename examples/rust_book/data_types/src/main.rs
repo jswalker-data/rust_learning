@@ -24,7 +24,7 @@ fn main() {
     // booleans
     let t = true;
 
-    let f: blool = false;
+    let f: bool = false;
 
     // character type - literals with single quotes
     let c = 'z';
