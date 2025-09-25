@@ -46,7 +46,7 @@ fn main() {
 
     // arrays
     let a: [i32; 5] = [1, 2, 3, 4, 5];
-    let a = [3; 5] // [3, 3, 3, 3, 3]
+    let a = [3; 5]; // [3, 3, 3, 3, 3]
 
     let first = a[0];
     let second = a[1];
