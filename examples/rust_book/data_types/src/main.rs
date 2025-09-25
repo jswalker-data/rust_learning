@@ -32,8 +32,23 @@ fn main() {
     let heart_eyed_cat = '😻';
 
     // tuple types
-    let tup: 
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
 
+    // pattern matching - deconstruction
+    let (x, y, z) = tup;
+    //println!("The value of y is: {y}") // 6.4
 
+    // direct access
+    let x: (i32, f64, u8) = (500, 6.4, 1);
+    let five_hundred = x.0;
+    let six_point_four = x.1;
+    let one = x.2;
+
+    // arrays
+    let a: [i32; 5] = [1, 2, 3, 4, 5]
+    let a = [3; 5] // [3, 3, 3, 3, 3]
+
+    let first = a[0];
+    let second = a[1];
 
 }
