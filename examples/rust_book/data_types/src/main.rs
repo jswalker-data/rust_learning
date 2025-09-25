@@ -1,9 +1,9 @@
 fn main() {
 
-    // floating integer types
+    // floating-point types
     let x = 2.0; // f64
 
-    let y: u32 = 3.0; // f32
+    let y: f32 = 3.0; // f32
 
     // addition
     let sum = 5 + 10;
@@ -24,7 +24,7 @@ fn main() {
     // booleans
     let t = true;
 
-    let f: blool
+    let f: bool = false;
 
     // character type - literals with single quotes
     let c = 'z';
@@ -45,8 +45,8 @@ fn main() {
     let one = x.2;
 
     // arrays
-    let a: [i32; 5] = [1, 2, 3, 4, 5]
-    let a = [3; 5] // [3, 3, 3, 3, 3]
+    let a: [i32; 5] = [1, 2, 3, 4, 5];
+    let a = [3; 5]; // [3, 3, 3, 3, 3]
 
     let first = a[0];
     let second = a[1];
