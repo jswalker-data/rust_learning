@@ -20,10 +20,10 @@ const GIFTS: [&str; 12] = [
 ];
 
 fn main() {
-    for day in 0..11 {
-        println!("On the {} day of christmas my true love gave to me:", ORDINALS[day]);
+    for day in 0..12 {
+        println!("On the {} day of Christmas my true love gave to me:", ORDINALS[day]);
         for gift in (0..=day).rev() {
             println!("{}", GIFTS[gift]);
-            };
-        };
+            }
+        }
     }
