@@ -18,13 +18,13 @@ fn main() {
         }
     };
 
-    println!("The {nth}th Fibonacci number is...");
+    println!("The {nth}th Fibbonacci number is...");
 
     if nth == 0 {
         println!("0 ... pick a better number");
         return;
     } else if nth == 1 {
-        println!("0");
+        println!("1");
         return;
     }
 
