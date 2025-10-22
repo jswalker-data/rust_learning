@@ -1,9 +1,9 @@
 [workspace]
 members = [
-    "examples/rust_book/*", "examples/rust_by_example/hello_world",
-    #"examples/rust-by-example/*",
-    #"projects/*",
+    "rust_book/chapters/*",
+    "rust_book/projects/*",
+    "rust_by_example/*"
 ]
 
 # Expliciilty pinning to use the new 2024 resolver
-resolver = "3"
+resolver = "2"
