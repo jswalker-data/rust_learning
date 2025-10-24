@@ -1,6 +1,6 @@
 [workspace]
-members = [ "ownership_4",
-    "rust_book/chapters/*", "rust_book/ownership_3",
+members = [
+    "rust_book/chapters/*",
     "rust_book/projects/*",
     "rust_by_example/*"
 ]
