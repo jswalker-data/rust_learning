@@ -7,26 +7,26 @@ struct user {
     active: bool,
     username: String,
     email: String,
-    sing_in_count: u64,
+    sign_in_count: u64,
 }
 
 // create an instance of a struct
 fn main_1() {
     let user1 = User {
         active: true,
-        usernmae: String::from("someone123"),
+        username: String::from("someone123"),
         email: String::from("someone@example.com"),
-        sing_in_count: 1,
+        sign_in_count: 1,
     };
 
     // dot notation to access information 'user1.email'
     // if instance is mut can change value using dot notation
     // entire instance mut or not mut
-    user1.email = String::from("anotheremail@example.com")
+    user1.email = String::from("anotheremail@example.com");
 
 }
 
-// as with any experssion, we can contruct a new instance of the struct
+// as with any expression, we can construct a new instance of the struct
 // as the last expression in a function to implicitly return the new instance
 fn build_user(email: String, username: String) -> User {
     User {
@@ -44,7 +44,7 @@ fn build_user_init(email: String, username: String) -> User {
     User {
         active: true,
         username,
-        emial,
+        email,
         sign_in_count: 1,
     }
 }
@@ -54,9 +54,9 @@ fn build_user_init(email: String, username: String) -> User {
 fn main_2() {
     let user1 = User {
         active: true,
-        usernmae: String::from("someone123"),
+        username: String::from("someone123"),
         email: String::from("someone@example.com"),
-        sing_in_count: 1,
+        sign_in_count: 1,
     };
 
     let user_2 = User {
@@ -67,7 +67,7 @@ fn main_2() {
     };
 
     let user_3 = User {
-        emial: String::from("another_2@example.com"),
+        email: String::from("another_2@example.com"),
         ..user1
     };
 }
@@ -77,7 +77,7 @@ fn main_2() {
 struct Color(i32, i32, i32);
 struct Point(i32, i32, i32);
 
-fn main() {
+fn main_tuple() {
     let black = Color(0, 0, 0);
     let origin = Point(0, 0, 0);
 }
@@ -87,6 +87,6 @@ fn main() {
 // must equal without defining specific values
 struct AlwaysEqual;
 
-fn main() {
+fn main_unit() {
     let subject = AlwaysEqual;
 }
