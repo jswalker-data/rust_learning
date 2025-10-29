@@ -1,19 +1,19 @@
-// write a function that takes a string of words seperated by spaces
+// write a function that takes a string of words separated by spaces
 // and returns first word. Or whole string if no spaces
 
 // without slices first
 
-// take typs &String, don't need wonership
+// take type &String, don't need ownership
 // return index of end of string (the space)
-// we can;t return part of a string type
+// we can't return part of a string type
 fn first_word(s: &String) -> usize {
 
-    // convert string to array of bites
+    // convert string to array of bytes
     let bytes = s.as_bytes();
 
-    // create an iterator over the array of bites
+    // create an iterator over the array of bytes
     // iterate through the enumerated values to identify space
-    // and retrn the index
+    // and return the index
     // &item needed as we are referencing an element
     for (i, &item) in bytes.iter().enumerate() {
 
@@ -36,10 +36,10 @@ fn main() {
     let word = first_word(&s);
 
     // empty s to make it equal to ""
-    s.clear;
+    s.clear();
 
-    // we are now having issues because word isn't inherintly 
-    // connected to the s string, they are seperate and not actually
+    // we are now having issues because word isn't inherently 
+    // connected to the s string, they are separate and not actually
     // related so we could mut either with no issues
 }
 
@@ -74,7 +74,7 @@ fn example_slices() {
     // slicing in middle of a multibyte character is an error
 }
 
-// string sliceing is '&str'
+// string slicing is '&str'
 // if we have a string slice we can pass that and if we have
 // &String we can slice the whole thing and take that as well
 fn first_word_slices(s: &str) -> &str {
@@ -82,7 +82,7 @@ fn first_word_slices(s: &str) -> &str {
     let bytes = s.as_bytes();
 
     for (i, &item) in bytes.iter().enumerate() {
-        if &item = b' ' {
+        if item == b' ' {
             return &s[0..i];
         }
     }
@@ -100,9 +100,9 @@ fn main_slices() {
     let word = first_word_slices(&s);
 
     // error here!!!!
-    s.clear;
+    s.clear();
 
-    println!("the first wors is {word}");
+    println!("the first word is {word}");
 
     // error because we are immutable borowing s for the first_word_slice API
     // but then muttably destroying it
@@ -110,7 +110,7 @@ fn main_slices() {
 }
 
 // String literals
-// chaging signature of first_word_slices means we can pass much more
+// changing signature of first_word_slices means we can pass much more
 fn main_3() {
     let my_string = String::from("hello world");
 
@@ -139,6 +139,6 @@ fn main_3() {
 fn other_slices() {
 
     let a = [1, 2, 3, 4, 5];
-    let slice = &a[1..3]
-    assert_eq!(slice, &[2, 3])
+    let slice = &a[1..3];
+    assert_eq!(slice, &[2, 3]);
 }
