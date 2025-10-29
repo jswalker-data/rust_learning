@@ -71,3 +71,22 @@ fn main_2() {
         ..user1
     };
 }
+
+// struct tuples
+// black doesnt equal origin as they are different structs
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+fn main() {
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
+}
+
+// unit-like structs
+// allow equalisation of values, we can say for testing that all AlwaysEqual
+// must equal without defining specific values
+struct AlwaysEqual;
+
+fn main() {
+    let subject = AlwaysEqual;
+}
