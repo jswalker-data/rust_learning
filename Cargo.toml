@@ -1,6 +1,6 @@
 [workspace]
 members = [
-    "rust_book/chapters/*",
+    "rust_book/chapters/*", "rust_book/defining_enum",
     "rust_book/projects/*",
     "rust_by_example/*"
 ]
