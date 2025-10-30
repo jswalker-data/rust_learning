@@ -1,5 +1,5 @@
 
-// using structs to calulate area of a rectangle
+// using structs to calculate area of a rectangle
 // start by using single variables then refactor
 // to use structs
 //commits will show refactors and comments below will show stages
@@ -12,8 +12,8 @@
 
 // addition: I want to see rect1 in an output form for debugging
 // println! does not know how to format it so errors
-// we can printusing {:?} which is debug mode (:#? is pretty debug)
-// however we need to opt into it by adding the outer attriute
+// we can print using {:?} which is debug mode (:#? is pretty debug)
+// however we need to opt into it by adding the outer attribute
 // just before struct definition. This is attached to the struct
 // could also use dbg!() which borrows and returns the values for debugging
 // rather then taking ownership
@@ -33,7 +33,7 @@
 
 // addition: associated functions don't have self, as not methods, often used
 // for constructors. retuning new instance of struct
-// self in return and body are aliases for Rectangle type. We are 
+// self in return and body are aliases for Rectangle type. We are
 // returning a Rectangle type and defining a Rectangle struct here
 
 #[derive(Debug)]
@@ -50,10 +50,10 @@ impl Rectangle {
     fn can_hold(&self, rect: &Rectangle) -> bool {
         let w = self.width >= rect.width;
         let h = self.height >= rect.height;
-        w & h
+        w && h
     }
 
-    fn square(size:u32) -> Self {
+    fn square(size: u32) -> Self {
         Self {
             width: size,
             height: size,
