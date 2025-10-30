@@ -75,7 +75,7 @@ fn main() {
         height: 45,
     };
 
-    let sqr = Rectangle::square(3)
+    let _sqr = Rectangle::square(3);
 
     println!("Can rect1 hold rect 2? {}", rect1.can_hold(&rect2));
     println!("Can rect1 hold rect 3? {}", rect1.can_hold(&rect3));
