@@ -31,6 +31,10 @@
 // addition: new method to see if rectangles can fit inside one another
 // remove the width method for simplicity and the printing
 
+// addition: associated functions don't have self, as not methods, often used
+// for constructors. retuning new instance of struct
+// self in return and body are aliases for Rectangle type. We are 
+// returning a Rectangle type and defining a Rectangle struct here
 
 #[derive(Debug)]
 struct Rectangle {
@@ -46,12 +50,16 @@ impl Rectangle {
     fn can_hold(&self, rect: &Rectangle) -> bool {
         let w = self.width >= rect.width;
         let h = self.height >= rect.height;
-
         w & h
     }
+
+    fn square(size:u32) -> Self {
+        Self {
+            width: size,
+            height: size,
+        }
+    }
 }
-
-
 
 fn main() {
     let rect1 = Rectangle {
@@ -66,6 +74,8 @@ fn main() {
         width: 60,
         height: 45,
     };
+
+    let sqr = Rectangle::square(3)
 
     println!("Can rect1 hold rect 2? {}", rect1.can_hold(&rect2));
     println!("Can rect1 hold rect 3? {}", rect1.can_hold(&rect3));
