@@ -18,10 +18,32 @@
 // could also use dbg!() which borrows and returns the values for debugging
 // rather then taking ownership
 
+// refactor: define methods upon the Rectangle struct itself
+// use implementation block to define the function within
+// context of Rectangle
+// use method syntax: instance.method(arguments) to call this function upon
+// the instance
+// still use &self as we are borrowing the instance, we are only reading and
+// not writing
+// can define a method same as one of the fields
+// the method is rect1.width() whereas the field is rect1.width
+
 #[derive(Debug)]
 struct Rectangle {
     width: u32,
     height: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
+impl Rectangle {
+    fn width(&self) -> bool {
+        self.width > 0
+    }
 }
 
 fn main() {
@@ -32,12 +54,12 @@ fn main() {
 
     println!("rect1 is {rect1:#?}");
 
+    if rect1.width() {
+        println!("The rectangle has a nonzero width of {}", rect1.width);
+    }
+
     println!(
         "The area of the rectangle is {} pixels!",
-        area(&rect1)
+        rect1.area()
     );
-}
-
-fn area(rectangle: &Rectangle) -> u32 {
-    rectangle.width * rectangle.height
 }
