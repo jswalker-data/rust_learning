@@ -28,6 +28,10 @@
 // can define a method same as one of the fields
 // the method is rect1.width() whereas the field is rect1.width
 
+// addition: new method to see if rectangles can fit inside one another
+// remove the width method for simplicity and the printing
+
+
 #[derive(Debug)]
 struct Rectangle {
     width: u32,
@@ -38,28 +42,32 @@ impl Rectangle {
     fn area(&self) -> u32 {
         self.width * self.height
     }
-}
 
-impl Rectangle {
-    fn width(&self) -> bool {
-        self.width > 0
+    fn can_hold(&self, rect: &Rectangle) -> bool {
+        let w = self.width >= rect.width;
+        let h = self.height >= rect.height;
+
+        w & h
     }
 }
+
+
 
 fn main() {
     let rect1 = Rectangle {
         width: 30,
         height: 50,
     };
+    let rect2 = Rectangle {
+        width: 10,
+        height: 40,
+    };
+    let rect3 = Rectangle {
+        width: 60,
+        height: 45,
+    };
 
-    println!("rect1 is {rect1:#?}");
+    println!("Can rect1 hold rect 2? {}", rect1.can_hold(&rect2));
+    println!("Can rect1 hold rect 3? {}", rect1.can_hold(&rect3));
 
-    if rect1.width() {
-        println!("The rectangle has a nonzero width of {}", rect1.width);
-    }
-
-    println!(
-        "The area of the rectangle is {} pixels!",
-        rect1.area()
-    );
 }
